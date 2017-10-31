@@ -14,6 +14,26 @@ public class Tiles implements State {
 	protected final int emptyTileRow;
 	protected final int emptyTileColumn;
 	
+	public boolean equals(Object that) {
+	  Tiles thatTiles;
+	  if (that instanceof Tiles) {
+	    thatTiles = (Tiles) that;
+	  } else {
+	    return false;
+	  }
+    if (this.width != thatTiles.width
+        || this.tiles != thatTiles.tiles
+        || this.emptyTileRow != thatTiles.emptyTileRow
+        || this.emptyTileColumn != thatTiles.emptyTileColumn) {
+      return false;
+    }
+    return true;
+  }
+	
+	public int hashCode() {
+	  return 0;
+	}
+	
 	public Tiles(int[][] tiles) {
 		width = tiles.length;
 		this.tiles = new int[width * width];
